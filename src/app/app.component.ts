@@ -9,6 +9,14 @@ import { NewComponent } from './components/new-component/new-component.component
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, NewComponent],
+  // styleUrls: ['./components/new-component/new-component.component.scss'],
+  // styles: [
+  //   `
+  //     h1 {
+  //       color: red;
+  //     }
+  //   `
+  // ],
   template: `
     <!-- <router-outlet></router-outlet> -->
     <h1>Curso de Angular</h1>
