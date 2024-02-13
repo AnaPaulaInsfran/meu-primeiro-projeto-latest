@@ -23,6 +23,7 @@ export class TemplateBindingComponent {
   //   },1000)
   // }
 
+  public isTextDecoration = this.age >= 35 ? 'underline' : 'none';
   //método
   public sum(val1: number, val2: number) {
     return val1 + val2;

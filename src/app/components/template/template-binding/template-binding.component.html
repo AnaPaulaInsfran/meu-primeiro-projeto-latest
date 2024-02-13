@@ -16,3 +16,12 @@
 <h2>Attribute binding</h2>
 <!-- <element [attr.attribute-you-are-targeting]="value"></element> -->
 <p [attr.title]="name" [attr.aria-label]="name">Ana Insfran</p>
+<hr />
+
+<h2>Class and Style binding</h2>
+<p [class.background-red]="age >= 35" [class.background-blue]="age < 35">
+  {{ name }}
+</p>
+
+<p [style.text-decoration]="isTextDecoration">{{ age }}</p>
+
