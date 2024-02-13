@@ -1,6 +1,6 @@
 <h2>Template</h2>
 <h3>Text Interpolation</h3>
-<p>{{ name }} - {{ age }} - {{ sum(1, 2) }}</p>
+<p>{{ name }} - {{ age }}</p>
 
 <p> {{ condition }} </p>
 
@@ -24,4 +24,20 @@
 </p>
 
 <p [style.text-decoration]="isTextDecoration">{{ age }}</p>
+<hr />
+
+<h2>Event binding</h2>
+
+<!-- <element
+  (TargetEventName)="TemplateStatement"
+></element> -->
+
+<button (click)="sum()">+</button>
+<button (click)="sub()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)" />
+
+<div style="background: red; width: 300px; height: 300px; margin-top: 10px"
+(mousemove)="onMouseMove($event)"
+></div>
+
 
