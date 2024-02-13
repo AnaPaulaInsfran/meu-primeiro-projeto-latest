@@ -13,15 +13,15 @@ Você pode definir estilos específicos para o componente raiz,
 por exemplo, alterando a cor de fundo ou a borda do componente.
 */
 
-h2 {
-  background: blue;
-}
+// h2 {
+//   background: blue;
+// }
 
-:host {
-  h2 {
-    background: red;
-  }
-}
+// :host {
+//   h2 {
+//     background: red;
+//   }
+// }
 
 /*
 :host-context()  ele é um seletor que permite aplicar estilos
@@ -35,19 +35,19 @@ componente filho com base em um valor definido
 em seu componente pai.
 */
 
-:host-context(.theme-dark) {
-  h2 {
-    background: black;
-    color: white;
-  }
-}
+// :host-context(.theme-dark) {
+//   h2 {
+//     background: black;
+//     color: white;
+//   }
+// }
 
-:host-context(.theme-red) {
-  h2 {
-    background: red;
+// :host-context(.theme-red) {
+//   h2 {
+//     background: red;
 
-  }
-}
+//   }
+// }
 
 /*
 ::ng-deep ele é um mecanismo que permite que os estilos
@@ -61,8 +61,8 @@ de ::ng-deep pode tornar o código mais difícil de manter e
 pode não ser a melhor prática em muitos casos.
 */
 
-::ng-deep {
-  .theme-red {
-    border: 5px solid blue;
-  }
-}
+// ::ng-deep {
+//   .theme-red {
+//     border: 5px solid blue;
+//   }
+// }
