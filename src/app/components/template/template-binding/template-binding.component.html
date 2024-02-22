@@ -37,3 +37,15 @@
 <input [(ngModel)]="name"/>
 
 {{name}}
+<hr>
+
+<h3>Diretivas de atributo</h3>
+<div [ngClass]="{'background-red': age > 35, 'background-blue': age <= 35}">Classes condicionais.</div>
+
+<div [ngStyle]="{
+  color: age > 40 ? 'green' : 'red',
+  'font-size': age > 40 ? '10px' : '20px',
+}"
+>
+Estilo dinâmico.
+</div>
