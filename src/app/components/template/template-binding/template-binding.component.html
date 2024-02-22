@@ -13,3 +13,8 @@
 <h2>Attribute binding</h2>
 <!-- <element [attr.attribute-you-are-targeting]="value"></element> -->
 <p [attr.title]="name" [attr.ariaLabel]="name">Miguel</p>
+<hr>
+
+<h2>Class and Style binding</h2>
+<p [class.background-red]="age >= 36" [class.background-blue]="age < 36">{{name}}</p>
+<p [style.text-decoration]="isTextDecoration">{{age}}</p>
