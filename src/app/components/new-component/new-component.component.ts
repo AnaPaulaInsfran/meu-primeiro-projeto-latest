@@ -10,5 +10,5 @@ import { Component } from '@angular/core';
   // styles: [`h2{color:blue} `],
 })
 export class NewComponent {
-
+  public name = "Gigi"
 }
