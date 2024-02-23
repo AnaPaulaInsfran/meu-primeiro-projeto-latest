@@ -1,13 +1,24 @@
-import { NgIf } from '@angular/common';
+import { NgIf, AsyncPipe, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { Observable, delay, of } from 'rxjs';
 
 @Component({
   selector: 'app-template-control-flow',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, NgFor, AsyncPipe],
   templateUrl: './template-control-flow.component.html',
   styleUrl: './template-control-flow.component.scss'
 })
 export class TemplateControlFlowComponent {
-  public isTrue = false;
+  public isTrue = true;
+
+  public loadingData$: Observable<string[]> = of([
+    'item 1',
+    'item 2',
+    'item 3',
+  ]).pipe(delay(3000));
+
+  public trackByFn(index: number){
+    return index;
+  }
 }
