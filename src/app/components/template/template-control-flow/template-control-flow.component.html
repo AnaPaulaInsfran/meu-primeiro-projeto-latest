@@ -45,7 +45,7 @@
 <ng-template #isFalse>Não está correto</ng-template> -->
 
 <!-- NOVA FORMA -->
-
+<!--
 @for (
   item of itens; track item.name;
   let i = $index;
@@ -63,10 +63,10 @@
   <p>even - {{ e }}</p>
   <p>odd - {{ o }}</p>
   }
-  <hr />
+  <hr /> -->
 
   <!-- FORMA ANTIGA -->
-
+<!--
 <ng-container
   *ngFor="
       let item of itens;
@@ -89,7 +89,30 @@
 </ng-container>
 
 <input #name type="text">
-<button (click)="addNewName(name.value)">Add Name</button>
+<button (click)="addNewName(name.value)">Add Name</button> -->
 
+<!-- NOVA FORMA -->
+
+<ul>
+  @for (item of itens; track item.name) {
+    <li> {{ item.name }} </li>
+  } @empty {
+    <li> Não contém valores </li>
+  }
+</ul>
+
+<!-- FORMA ANTIGA -->
+<ul>
+  <ng-container *ngIf="itens.length === 0; else itensExist" >
+    <li> Não contém valores </li>
+  </ng-container>
+  <ng-template #itensExist>
+    <ng-container *ngFor="let item of itens">
+      <li>
+        {{ item.name }}
+      </li>
+    </ng-container>
+  </ng-template>
+</ul>
 
 
