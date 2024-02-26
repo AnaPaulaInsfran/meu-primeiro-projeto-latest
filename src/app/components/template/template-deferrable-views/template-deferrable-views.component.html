@@ -14,11 +14,11 @@
 
 <h2 #trigger>Deferrable Views</h2>
 
-@defer {
+@defer(on interaction) {
   <app-new-component />
-} @placeholder(minimum 5s) {
-  <p>Mostrar antes de mostrar algo</p>
-} @loading {
+} @placeholder {
+  <p>Mostrar antes de mostrar algo.</p>
+} @loading(after 150ms; minimum 5000ms) {
   <p>Loading...</p>
 } @error {
   <p>Loading failed :(</p>
@@ -72,5 +72,5 @@ lembrando que é OR. Ex.
   <!-- PLACEHOLDER - @placeholder(minimum 5s) aparecer a mensagem por 5s, por exemplo - espera enquanto o defer carrega,
   carregou -- vai aguardar 5s para mostrar o defer -->
 
-
+<!-- @loading(after 150ms; minimum 5000ms)  - dar loading min de 5s.....after - se demorar 150ms p carregar, esperar mais 5s -->
 
