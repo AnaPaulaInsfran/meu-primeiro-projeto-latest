@@ -13,11 +13,10 @@
 -->
 
 <h2 #trigger>Deferrable Views</h2>
-<button (click)="isTrue = true">Add True</button>
 
-@defer (when loadingData$ | async){
+@defer {
   <app-new-component />
-} @placeholder {
+} @placeholder(minimum 5s) {
   <p>Mostrar antes de mostrar algo</p>
 } @loading {
   <p>Loading...</p>
@@ -54,8 +53,24 @@ lembrando que é OR. Ex.
 } @placeholder {
   <p #trigger2>Mostrar antes de mostrar algo</p>-->
 
+  <!-- Exemplo com  WHEN
+
+  <h2 #trigger>Deferrable Views</h2>
+  <button (click)="isTrue = true">Add True</button>
+
+  @defer (when loadingData$ | async){
+    <app-new-component />
+  } @placeholder {
+    <p>Mostrar antes de mostrar algo</p>
+  } @loading {
+    <p>Loading...</p>
+  } @error {
+    <p>Loading failed :(</p>
+  } -->
 
 
+  <!-- PLACEHOLDER - @placeholder(minimum 5s) aparecer a mensagem por 5s, por exemplo - espera enquanto o defer carrega,
+  carregou -- vai aguardar 5s para mostrar o defer -->
 
 
 
