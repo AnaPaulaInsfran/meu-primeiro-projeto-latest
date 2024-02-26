@@ -13,11 +13,12 @@
 -->
 
 <h2 #trigger>Deferrable Views</h2>
+<button (click)="isTrue = true">Add True</button>
 
-@defer (on interaction(trigger2); prefetch on interaction(trigger)){
+@defer (when loadingData$ | async){
   <app-new-component />
 } @placeholder {
-  <p #trigger2>Mostrar antes de mostrar algo</p>
+  <p>Mostrar antes de mostrar algo</p>
 } @loading {
   <p>Loading...</p>
 } @error {
