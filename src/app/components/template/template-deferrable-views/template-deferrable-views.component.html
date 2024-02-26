@@ -1,0 +1,77 @@
+
+<!--
+  on - especifica uma condição de acionador usando um acionador da lista.
+  (idle, timer, viewport, interaction, hover, immediate, prefetch)
+
+  when - especifica uma condição imperativa como uma expressão que retorna
+  um booleano. Quando esta expressão se torna verdadeira, o espaço reservado
+  é trocado pelo conteúdo carregado lentamente (o que pode ser uma operação
+  assíncrona se as dependências precisarem ser buscadas).
+
+  Nota: Vários on triggers são sempre condições OR. Da mesma forma, on misturado
+  com when também são condições OR.
+-->
+
+<h2 #trigger>Deferrable Views</h2>
+
+@defer(on interaction) {
+  <app-new-component />
+} @placeholder {
+  <p>Mostrar antes de mostrar algo.</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Loading failed :(</p>
+}
+
+<!-- @defer (on idle) é o padrão. Após carregar todo html, css, js da página, vai carregar um
+pequeno js (chunk) - qdo estiver inativo o browser-->
+
+<!-- @defer (on timer(5s)) ou 5000ms - o tempo pode mudar, neste caso enquanto está 5s, vai
+mostrar o que está no placeholder. Se a internet for lenta, após os 5s, vai aparecer
+o que está np loading. -->
+
+<!-- @defer (on viewport) - vai ficar em loading até chegar no estilo informado.
+Neste exemplo, até chegar na posição margin-bottom 200px bom para imagens, componentes pesados (ex. 3d)-->
+
+<!-- @defer (on interaction) vai carregar o componente com interação.
+ex. só saiu da msg do placeholder qdo cliquei nele....daí, fez loading e carregou.
+tb pode criar uma variável "trigger" e colocar dentro do interection...daí, só vai carregar qdo interagir
+com h2, pq a variável está nele....se tirar de lá e colocar no placeholder, vai precisar interagir com o placeholder  -->
+
+<!-- @defer (on hover) - vai carregar qdo passar o mouse em cima do placeholder (hover ou mouse enter) -->
+
+<!-- @defer (on immediate) qdo carregar tudo, vai carregar o componente-->
+
+<!-- @defer (on interaction; prefetch on idle) - vai carregar tudo com idle, porém, só vai aparecer com interação no defer.
+lembrando que é OR. Ex.
+
+<h2 #trigger>Deferrable Views</h2>
+
+@defer (on interaction(trigger2); prefetch on interaction(trigger)){
+  <app-new-component />
+} @placeholder {
+  <p #trigger2>Mostrar antes de mostrar algo</p>-->
+
+  <!-- Exemplo com  WHEN
+
+  <h2 #trigger>Deferrable Views</h2>
+  <button (click)="isTrue = true">Add True</button>
+
+  @defer (when loadingData$ | async){
+    <app-new-component />
+  } @placeholder {
+    <p>Mostrar antes de mostrar algo</p>
+  } @loading {
+    <p>Loading...</p>
+  } @error {
+    <p>Loading failed :(</p>
+  } -->
+
+
+  <!-- PLACEHOLDER - @placeholder(minimum 5s) aparecer a mensagem por 5s, por exemplo - espera enquanto o defer carrega,
+  carregou -- vai aguardar 5s para mostrar o defer -->
+
+<!-- @loading(after 150ms; minimum 5000ms)  - dar loading min de 5s.....after - se demorar 150ms p carregar, esperar mais 5s -->
+
+<!-- @error - aparece qdo a internet cai, por ex. -->
